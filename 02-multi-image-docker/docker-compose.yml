@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - "127.0.0.1:9999:80"
+    volumes:
+     - /Users/netknight/Projects/docker/devclub/02-multi-image-docker/data/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+     - /Users/netknight/Projects/docker/devclub/02-multi-image-docker/data/wp-content:/var/www/html/wp-content
+    environment:
+      WORDPRESS_DB_PASSWORD: fj4ba%s@2KjDS
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    volumes:
+     - /Users/netknight/Projects/docker/devclub/02-multi-image-docker/data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: fj4ba%s@2KjDS
